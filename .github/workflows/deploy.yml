@@ -1,4 +1,4 @@
-name: Deploy Mini Blog to Hostinger
+name: Deploy Next.js App to Hostinger
 
 on:
   push:
@@ -8,43 +8,54 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to Hostinger VPS
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy over SSH
+      - name: Deploy to Hostinger VPS
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-
           printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-
           ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
 
-          ssh -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" << 'EOF'
-            set -e
+          ssh -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" 'bash -s' <<'REMOTE'
+          set -e
 
-            cd /home/deploy/static-project
+          echo "Loading Node.js environment..."
+          export NVM_DIR="$HOME/.nvm"
 
-            echo "Fetching latest code..."
-            git fetch origin
-            git reset --hard origin/main
+          if [ ! -s "$NVM_DIR/nvm.sh" ]; then
+            echo "NVM not found"
+            exit 1
+          fi
 
-            echo "Installing dependencies..."
-            npm ci
+          . "$NVM_DIR/nvm.sh"
+          nvm use 24
 
-            echo "Building Next.js application..."
-            npm run build
+          echo "Checking tools..."
+          node -v
+          npm -v
+          pm2 -v
 
-            echo "Restarting application..."
-            pm2 restart static-project --update-env
+          cd /home/deploy/static-project
 
-            pm2 save
+          echo "Fetching latest code..."
+          git fetch origin
+          git reset --hard origin/main
 
-            echo "Deployment completed successfully!"
-          EOF
+          echo "Installing dependencies..."
+          npm ci
+
+          echo "Building Next.js application..."
+          npm run build
+
+          echo "Restarting application..."
+          pm2 restart static-project --update-env
+          pm2 save
+
+          echo "Deployment completed successfully!"
+          REMOTE
