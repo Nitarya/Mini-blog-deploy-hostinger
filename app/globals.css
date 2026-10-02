@@ -1,0 +1,92 @@
+:root {
+  --bg: #0f1115;
+  --card: #181b22;
+  --text: #e7e9ee;
+  --muted: #9aa3b2;
+  --accent: #6ea8fe;
+  --border: #262b36;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+.site-title {
+  margin: 0 0 4px;
+  font-size: 2rem;
+}
+
+.site-subtitle {
+  margin: 0 0 40px;
+  color: var(--muted);
+}
+
+/* Blog cards on the homepage */
+.card {
+  display: block;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+}
+
+.card .date {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.card .excerpt {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+/* Single post page */
+.post-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.post-body {
+  white-space: pre-wrap;
+  margin-top: 24px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
