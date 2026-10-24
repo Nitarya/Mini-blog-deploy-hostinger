@@ -1,5 +1,5 @@
 const GITHUB_PROFILE = "https://github.com/Nitarya";
-const EMAIL = "nitya@remasto.com";
+const EMAIL = "niittss27@gmail.com";
 
 const skills = [
   "Next.js",
