@@ -24,6 +24,8 @@ export default function HomePage() {
       </nav>
 
       <section className="hero container">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/avatar.jpg" alt="Nitya" className="avatar" />
         <p className="hero-kicker">Hi, I&apos;m</p>
         <h1 className="hero-title">Nitya</h1>
         <p className="hero-subtitle">
