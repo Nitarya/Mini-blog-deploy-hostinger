@@ -201,6 +201,59 @@ a {
 
 .card-muted {
   opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* Project grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.project-card {
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.project-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.project-card .excerpt {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.project-stack {
+  margin-top: 14px;
+  gap: 6px;
+}
+
+.project-stack .skill-pill {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.project-links .card-link {
+  margin-top: 0;
 }
 
 /* Footer */
