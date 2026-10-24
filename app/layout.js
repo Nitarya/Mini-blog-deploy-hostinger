@@ -1,9 +1,8 @@
 import "./globals.css";
 
-// The root layout wraps every page in the app.
 export const metadata = {
-  title: "Mini Blog",
-  description: "A tiny blog built to learn Next.js file-based routing.",
+  title: "Nitya — Portfolio",
+  description: "Developer portfolio of Nitya.",
 };
 
 export default function RootLayout({ children }) {
