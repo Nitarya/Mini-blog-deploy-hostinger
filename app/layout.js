@@ -20,10 +20,23 @@ export const metadata = {
   description: "Developer portfolio of Nitya.",
 };
 
+const themeInitScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem("theme");
+    var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (theme === "dark") document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {children}
+      </body>
     </html>
   );
 }

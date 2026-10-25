@@ -6,8 +6,43 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --bg: #f7f3ec;
+  --bg-nav: rgba(247, 243, 236, 0.85);
+  --bg-elevated: #efe8da;
+  --bg-row-hover: rgba(23, 19, 16, 0.03);
+  --text: #171310;
+  --text-muted: #6b6258;
+  --text-faint: #a39a8c;
+  --border: rgba(23, 19, 16, 0.12);
+  --accent: #8a6a35;
+  --accent-dim: rgba(138, 106, 53, 0.1);
+  --accent-dim-strong: rgba(138, 106, 53, 0.35);
+  --stroke: rgba(23, 19, 16, 0.06);
+  --btn-bg: #171310;
+  --btn-text: #f7f3ec;
+}
+
+.dark {
+  --bg: #0b0a09;
+  --bg-nav: rgba(11, 10, 9, 0.8);
+  --bg-elevated: #15130f;
+  --bg-row-hover: rgba(245, 241, 234, 0.03);
+  --text: #f5f1ea;
+  --text-muted: #a8a29a;
+  --text-faint: #6b655e;
+  --border: rgba(245, 241, 234, 0.1);
+  --accent: #c9a36a;
+  --accent-dim: rgba(201, 163, 106, 0.08);
+  --accent-dim-strong: rgba(201, 163, 106, 0.4);
+  --stroke: rgba(245, 241, 234, 0.07);
+  --btn-bg: #f5f1ea;
+  --btn-text: #0b0a09;
+}
+
 body {
-  background-color: #0b0a09;
+  background-color: var(--bg);
+  transition: background-color 0.2s ease;
 }
 
 .bg-grain {
