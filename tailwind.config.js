@@ -3,24 +3,26 @@ module.exports = {
   content: ["./app/**/*.{js,jsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["var(--font-display)", "serif"],
+        sans: ["var(--font-body)", "sans-serif"],
+      },
+      colors: {
+        ink: "#0b0a09",
+        paper: "#f5f1ea",
+        gold: {
+          DEFAULT: "#c9a36a",
+          light: "#e4c896",
+        },
+      },
       keyframes: {
-        blob: {
-          "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
-          "33%": { transform: "translate(30px, -40px) scale(1.1)" },
-          "66%": { transform: "translate(-20px, 20px) scale(0.95)" },
-        },
-        "gradient-x": {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        "spin-slow": {
-          to: { transform: "rotate(360deg)" },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(12px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
-        blob: "blob 9s infinite ease-in-out",
-        "gradient-x": "gradient-x 6s ease infinite",
-        "spin-slow": "spin-slow 14s linear infinite",
+        "fade-up": "fade-up 0.8s ease-out both",
       },
     },
   },

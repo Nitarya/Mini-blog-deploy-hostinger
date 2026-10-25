@@ -2,26 +2,10 @@ const GITHUB_PROFILE = "https://github.com/Nitarya";
 const EMAIL = "niittss27@gmail.com";
 
 const skillGroups = [
-  {
-    label: "Frontend",
-    gradient: "from-sky-500 to-cyan-400",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite"],
-  },
-  {
-    label: "Backend",
-    gradient: "from-violet-500 to-fuchsia-400",
-    skills: ["Node.js", "Express", "FastAPI"],
-  },
-  {
-    label: "Data",
-    gradient: "from-emerald-500 to-teal-400",
-    skills: ["MongoDB", "PostgreSQL", "Redis"],
-  },
-  {
-    label: "DevOps",
-    gradient: "from-amber-500 to-orange-400",
-    skills: ["Docker", "GitHub Actions", "Nginx", "PM2", "Linux VPS"],
-  },
+  { label: "Frontend", skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+  { label: "Backend", skills: ["Node.js", "Express", "FastAPI"] },
+  { label: "Data", skills: ["MongoDB", "PostgreSQL", "Redis"] },
+  { label: "DevOps", skills: ["Docker", "GitHub Actions", "Nginx", "PM2"] },
 ];
 
 const projects = [
@@ -87,240 +71,204 @@ const projects = [
   },
 ];
 
-function MailIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 7l9 6 9-6M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" />
-    </svg>
-  );
-}
-
-function GithubIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.1c-3.17.69-3.84-1.36-3.84-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.17 1.82 1.17 3.06 0 4.37-2.67 5.33-5.21 5.62.41.36.78 1.07.78 2.15v3.19c0 .31.21.66.79.55 4.51-1.51 7.77-5.76 7.77-10.78C23.02 5.24 18.27.5 12 .5Z" />
-    </svg>
-  );
-}
-
 function ArrowUpRightIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" {...props}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M7 17 17 7M8 7h9v9" />
-    </svg>
-  );
-}
-
-function ChevronDownIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
     </svg>
   );
 }
 
 export default function HomePage() {
   return (
-    <main className="bg-[#05050c] text-slate-100">
+    <main className="bg-grain min-h-screen bg-ink font-sans text-[#f5f1ea] selection:bg-gold selection:text-ink">
       {/* Nav */}
-      <nav className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
-        <div className="flex w-full max-w-xl items-center justify-between rounded-full border border-white/10 bg-white/[0.06] px-5 py-2.5 backdrop-blur-xl shadow-lg shadow-black/20">
-          <a
-            href="#home"
-            className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 bg-clip-text font-semibold tracking-tight text-transparent"
-          >
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.07] bg-ink/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+          <a href="#home" className="font-display text-lg italic text-[#f5f1ea]">
             Nitya
           </a>
-          <div className="hidden items-center gap-6 text-sm text-slate-300 sm:flex">
-            <a href="#about" className="transition hover:text-white">
+          <nav className="hidden items-center gap-10 text-[11px] uppercase tracking-[0.25em] text-stone-400 sm:flex">
+            <a href="#about" className="transition hover:text-[#f5f1ea]">
               About
             </a>
-            <a href="#projects" className="transition hover:text-white">
-              Projects
+            <a href="#work" className="transition hover:text-[#f5f1ea]">
+              Work
             </a>
-            <a href="#contact" className="transition hover:text-white">
+            <a href="#contact" className="transition hover:text-[#f5f1ea]">
               Contact
             </a>
-          </div>
+          </nav>
           <a
             href={`mailto:${EMAIL}`}
-            className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-slate-900 transition hover:bg-slate-200"
+            className="inline-flex items-center border border-white/15 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-[#f5f1ea] transition hover:border-gold hover:text-gold"
           >
-            Say hi
+            Say hello
           </a>
         </div>
-      </nav>
+      </header>
 
       {/* Hero */}
       <section
         id="home"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-24"
+        className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-24"
       >
-        <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(201,163,106,0.1),_transparent_60%)]" />
 
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="animate-blob absolute -left-24 top-10 h-72 w-72 rounded-full bg-sky-500/30 blur-3xl" />
-          <div className="animate-blob animation-delay-2000 absolute right-0 top-1/3 h-80 w-80 rounded-full bg-fuchsia-500/25 blur-3xl" />
-          <div className="animate-blob animation-delay-4000 absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-violet-500/25 blur-3xl" />
-        </div>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-6 top-16 hidden select-none whitespace-nowrap font-display text-[11rem] font-medium uppercase leading-none text-transparent [-webkit-text-stroke:1px_rgba(245,241,234,0.07)] lg:block xl:text-[13rem]"
+        >
+          Develop
+        </span>
 
-        <div className="relative z-10 flex flex-col items-center text-center">
-          <span className="mb-8 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-slate-300">
-            Open to full-stack &amp; frontend roles
-          </span>
+        <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-16 md:grid-cols-[1.3fr_0.7fr]">
+          <div className="animate-fade-up">
+            <p className="text-xs uppercase tracking-[0.35em] text-gold">
+              Full-Stack Developer
+            </p>
+            <h1 className="mt-6 font-display text-6xl leading-[0.95] text-[#f5f1ea] sm:text-7xl lg:text-8xl">
+              Hi, I&apos;m
+              <br />
+              <em className="italic text-gold">Nitya.</em>
+            </h1>
+            <p className="text-balance mt-8 max-w-md text-base leading-relaxed text-stone-400">
+              I build and ship small, focused web products end to end —
+              React &amp; Next.js on the front, Node and FastAPI on the
+              back, and a deployment pipeline that actually works.
+            </p>
 
-          <div className="relative mb-8">
-            <div className="animate-spin-slow absolute -inset-2 rounded-full bg-gradient-to-tr from-sky-400 via-purple-400 to-pink-400 opacity-70 blur-md" />
-            <div className="relative rounded-full bg-[#05050c] p-1.5">
+            <div className="mt-11 flex flex-wrap items-center gap-8">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="group inline-flex items-center gap-2 bg-[#f5f1ea] px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] text-ink transition hover:bg-gold"
+              >
+                Get in touch
+                <ArrowUpRightIcon className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+              <a
+                href={GITHUB_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-400 transition hover:text-[#f5f1ea]"
+              >
+                View GitHub
+                <span className="h-px w-5 bg-stone-600 transition group-hover:w-8 group-hover:bg-gold" />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[260px] md:max-w-none">
+            <div className="absolute inset-0 translate-x-3 translate-y-3 border border-gold/40" />
+            <div className="relative aspect-[4/5] overflow-hidden bg-stone-900">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/avatar.jpg"
                 alt="Nitya"
-                className="h-28 w-28 rounded-full object-cover sm:h-32 sm:w-32"
+                className="h-full w-full object-cover grayscale-[15%] contrast-[1.05]"
               />
-              <span className="absolute bottom-2 right-2 h-4 w-4 rounded-full border-2 border-[#05050c] bg-emerald-400" />
             </div>
-          </div>
-
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Hi, I&apos;m Nitya
-          </h1>
-          <p className="animate-gradient-x mt-3 bg-gradient-to-r from-sky-400 via-fuchsia-400 to-amber-300 bg-[length:200%_auto] bg-clip-text text-xl font-semibold text-transparent sm:text-2xl">
-            Full-Stack Developer
-          </p>
-
-          <p className="mt-6 max-w-xl text-balance text-base text-slate-400 sm:text-lg">
-            I build and ship small, focused web projects end to end —
-            React &amp; Next.js on the front, Node/FastAPI on the back,
-            and a pipeline that actually gets it onto a live server.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={`mailto:${EMAIL}`}
-              className="rounded-full bg-gradient-to-r from-sky-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/20 transition hover:scale-105"
-            >
-              Get in touch
-            </a>
-            <a
-              href={GITHUB_PROFILE}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/10"
-            >
-              <GithubIcon className="h-4 w-4" />
-              View GitHub
-            </a>
           </div>
         </div>
 
-        <a
-          href="#about"
-          aria-label="Scroll to About"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-500"
-        >
-          <ChevronDownIcon className="h-6 w-6" />
-        </a>
+        <div className="absolute bottom-10 right-6 hidden flex-col items-center gap-4 sm:flex">
+          <span
+            className="text-[10px] uppercase tracking-[0.3em] text-stone-600"
+            style={{ writingMode: "vertical-rl" }}
+          >
+            Scroll
+          </span>
+          <span className="h-16 w-px bg-gradient-to-b from-stone-600 to-transparent" />
+        </div>
       </section>
 
       {/* About */}
-      <section id="about" className="relative border-t border-white/5 bg-white/[0.02] py-24">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-            About
-          </h2>
-          <p className="mt-4 max-w-2xl text-2xl font-medium text-white sm:text-3xl">
-            I like building small projects well rather than big projects
-            halfway — clean structure, a pipeline that actually deploys,
-            and no more moving parts than the project needs.
+      <section id="about" className="relative border-t border-white/10 px-6 py-28">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex items-baseline gap-4">
+            <span className="font-display text-sm italic text-gold">01</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-stone-500">
+              About
+            </span>
+          </div>
+
+          <p className="text-balance mt-10 max-w-3xl font-display text-2xl italic leading-snug text-[#f5f1ea] sm:text-3xl">
+            &ldquo;I like building small projects well rather than big
+            projects halfway — clean structure, a pipeline that actually
+            deploys, and no more moving parts than the project needs.&rdquo;
           </p>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+          <div className="mt-20 grid gap-10 border-t border-white/10 pt-10 sm:grid-cols-4">
             {skillGroups.map((group) => (
-              <div
-                key={group.label}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-              >
-                <span
-                  className={`inline-block rounded-full bg-gradient-to-r ${group.gradient} px-3 py-1 text-xs font-semibold text-slate-950`}
-                >
+              <div key={group.label}>
+                <h3 className="text-xs uppercase tracking-[0.25em] text-gold">
                   {group.label}
-                </span>
-                <div className="mt-4 flex flex-wrap gap-2">
+                </h3>
+                <ul className="mt-4 space-y-2 text-sm text-stone-400">
                   {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300"
-                    >
-                      {skill}
-                    </span>
+                    <li key={skill}>{skill}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section id="projects" className="relative border-t border-white/5 py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-fuchsia-400">
-            Projects
-          </h2>
-          <p className="mt-4 text-2xl font-medium text-white sm:text-3xl">
-            A few things I&apos;ve shipped.
-          </p>
+      {/* Work */}
+      <section id="work" className="relative border-t border-white/10 px-6 py-28">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex items-baseline gap-4">
+            <span className="font-display text-sm italic text-gold">02</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-stone-500">
+              Selected Work
+            </span>
+          </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2">
-            {projects.map((project) => (
+          <div className="mt-12 border-t border-white/10">
+            {projects.map((project, index) => (
               <div
                 key={project.name}
-                className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-white/20"
+                className="group/row -mx-4 flex flex-col gap-5 border-b border-white/10 px-4 py-9 transition hover:bg-white/[0.02] sm:flex-row sm:items-start sm:justify-between"
               >
-                <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-r from-sky-500/0 via-fuchsia-500/0 to-amber-500/0 opacity-0 blur transition duration-300 group-hover:from-sky-500/10 group-hover:via-fuchsia-500/10 group-hover:to-amber-500/10 group-hover:opacity-100" />
-
-                <div className="relative">
-                  <h3 className="text-lg font-semibold text-white">
-                    {project.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-400">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-slate-400"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                <div className="flex items-baseline gap-5">
+                  <span className="shrink-0 font-display text-sm italic text-stone-600">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl text-[#f5f1ea] transition group-hover/row:text-gold sm:text-2xl">
+                      {project.name}
+                    </h3>
+                    <p className="mt-2 max-w-lg text-sm leading-relaxed text-stone-400">
+                      {project.description}
+                    </p>
+                    <p className="mt-3 text-[11px] uppercase tracking-[0.15em] text-stone-600">
+                      {project.stack.join(" · ")}
+                    </p>
                   </div>
+                </div>
 
-                  <div className="mt-5 flex items-center gap-3">
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 rounded-full bg-gradient-to-r from-sky-500 to-fuchsia-500 px-3.5 py-1.5 text-xs font-semibold text-white transition hover:scale-105"
-                      >
-                        Live demo
-                        <ArrowUpRightIcon className="h-3 w-3" />
-                      </a>
-                    )}
+                <div className="flex shrink-0 items-center gap-5 pl-10 sm:pl-6">
+                  {project.live && (
                     <a
-                      href={project.code}
+                      href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 rounded-full border border-white/15 px-3.5 py-1.5 text-xs font-semibold text-slate-300 transition hover:border-white/30 hover:text-white"
+                      className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-stone-400 transition hover:text-gold"
                     >
-                      <GithubIcon className="h-3 w-3" />
-                      Code
+                      Live
+                      <ArrowUpRightIcon className="h-3 w-3" />
                     </a>
-                  </div>
+                  )}
+                  <a
+                    href={project.code}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-stone-400 transition hover:text-gold"
+                  >
+                    Code
+                    <ArrowUpRightIcon className="h-3 w-3" />
+                  </a>
                 </div>
               </div>
             ))}
@@ -330,54 +278,53 @@ export default function HomePage() {
             href={GITHUB_PROFILE}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 flex items-center justify-center gap-2 rounded-2xl border border-dashed border-white/15 py-6 text-sm text-slate-400 transition hover:border-white/30 hover:text-white"
+            className="group mt-10 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-500 transition hover:text-[#f5f1ea]"
           >
-            See more on github.com/Nitarya
-            <ArrowUpRightIcon className="h-4 w-4" />
+            See all repositories
+            <ArrowUpRightIcon className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
       </section>
 
       {/* Contact */}
-      <section
-        id="contact"
-        className="relative overflow-hidden border-t border-white/5 py-28 text-center"
-      >
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="animate-blob absolute left-1/4 top-0 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
-          <div className="animate-blob animation-delay-2000 absolute right-1/4 bottom-0 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
-        </div>
+      <section id="contact" className="relative border-t border-white/10 px-6 py-32">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(201,163,106,0.08),_transparent_60%)]" />
 
-        <div className="relative z-10 mx-auto max-w-2xl px-6">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            Let&apos;s build something
+        <div className="relative z-10 mx-auto max-w-3xl text-center">
+          <div className="flex items-center justify-center gap-4">
+            <span className="font-display text-sm italic text-gold">03</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-stone-500">
+              Contact
+            </span>
+          </div>
+
+          <h2 className="mt-8 font-display text-4xl italic leading-tight text-[#f5f1ea] sm:text-5xl">
+            Let&apos;s build
+            <br className="hidden sm:block" /> something good.
           </h2>
-          <p className="mt-4 text-slate-400">
-            Want to work together or just say hi? My inbox is open.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+
+          <div className="mt-12 flex flex-col items-center gap-7">
             <a
               href={`mailto:${EMAIL}`}
-              className="flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/20 transition hover:scale-105"
+              className="group inline-flex items-center gap-2 border-b border-stone-600 pb-1 text-lg text-[#f5f1ea] transition hover:border-gold hover:text-gold"
             >
-              <MailIcon className="h-4 w-4" />
               {EMAIL}
+              <ArrowUpRightIcon className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href={GITHUB_PROFILE}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/10"
+              className="text-xs uppercase tracking-[0.25em] text-stone-500 transition hover:text-[#f5f1ea]"
             >
-              <GithubIcon className="h-4 w-4" />
-              GitHub
+              GitHub ↗
             </a>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/5 py-8 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Nitya — built with Next.js &amp; Tailwind CSS
+      <footer className="border-t border-white/10 px-6 py-8 text-center text-[11px] uppercase tracking-[0.2em] text-stone-600">
+        © {new Date().getFullYear()} Nitya — Built with Next.js &amp; Tailwind CSS
       </footer>
     </main>
   );
