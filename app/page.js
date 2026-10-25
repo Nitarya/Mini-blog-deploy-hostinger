@@ -1,4 +1,5 @@
 const GITHUB_PROFILE = "https://github.com/Nitarya";
+const LINKEDIN_PROFILE = "https://www.linkedin.com/in/nitya-agarwal-developer";
 const EMAIL = "niittss27@gmail.com";
 
 const skillGroups = [
@@ -153,6 +154,15 @@ export default function HomePage() {
                 className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-400 transition hover:text-[#f5f1ea]"
               >
                 View GitHub
+                <span className="h-px w-5 bg-stone-600 transition group-hover:w-8 group-hover:bg-gold" />
+              </a>
+              <a
+                href={LINKEDIN_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-400 transition hover:text-[#f5f1ea]"
+              >
+                LinkedIn
                 <span className="h-px w-5 bg-stone-600 transition group-hover:w-8 group-hover:bg-gold" />
               </a>
             </div>
@@ -311,14 +321,25 @@ export default function HomePage() {
               {EMAIL}
               <ArrowUpRightIcon className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-            <a
-              href={GITHUB_PROFILE}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs uppercase tracking-[0.25em] text-stone-500 transition hover:text-[#f5f1ea]"
-            >
-              GitHub ↗
-            </a>
+            <div className="flex items-center gap-5 text-xs uppercase tracking-[0.25em] text-stone-500">
+              <a
+                href={GITHUB_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#f5f1ea]"
+              >
+                GitHub ↗
+              </a>
+              <span className="text-stone-700">·</span>
+              <a
+                href={LINKEDIN_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#f5f1ea]"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
           </div>
         </div>
       </section>
