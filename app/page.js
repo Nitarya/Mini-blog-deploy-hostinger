@@ -123,7 +123,7 @@ export default function HomePage() {
 
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-6 top-16 hidden select-none whitespace-nowrap font-display text-[11rem] font-medium uppercase leading-none text-transparent [-webkit-text-stroke:1px_var(--stroke)] lg:block xl:text-[13rem]"
+          className="pointer-events-none absolute -right-6 top-16 hidden select-none whitespace-nowrap font-display text-[11rem] font-medium uppercase leading-none text-[var(--watermark)] lg:block xl:text-[13rem]"
         >
           Develop
         </span>
