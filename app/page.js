@@ -1,4 +1,5 @@
-import ThemeToggle from "./ThemeToggle";
+import Nav from "./Nav";
+import Reveal from "./Reveal";
 
 const GITHUB_PROFILE = "https://github.com/Nitarya";
 const LINKEDIN_PROFILE = "https://www.linkedin.com/in/nitya-agarwal-developer";
@@ -85,34 +86,14 @@ function ArrowUpRightIcon(props) {
 export default function HomePage() {
   return (
     <main className="bg-grain min-h-screen bg-[var(--bg)] font-sans text-[var(--text)] selection:bg-[var(--accent)] selection:text-[var(--bg)]">
-      {/* Nav */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-[var(--bg-nav)] backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <a href="#home" className="font-display text-lg italic text-[var(--text)]">
-            Nitya
-          </a>
-          <nav className="hidden items-center gap-10 text-[11px] uppercase tracking-[0.25em] text-[var(--text-muted)] sm:flex">
-            <a href="#about" className="transition hover:text-[var(--text)]">
-              About
-            </a>
-            <a href="#work" className="transition hover:text-[var(--text)]">
-              Work
-            </a>
-            <a href="#contact" className="transition hover:text-[var(--text)]">
-              Contact
-            </a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <a
-              href={`mailto:${EMAIL}`}
-              className="inline-flex items-center border border-[var(--border)] px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              Say hello
-            </a>
-          </div>
-        </div>
-      </header>
+      <a
+        href="#home"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-[var(--btn-bg)] focus:px-4 focus:py-2 focus:text-xs focus:uppercase focus:tracking-[0.2em] focus:text-[var(--btn-text)]"
+      >
+        Skip to content
+      </a>
+
+      <Nav />
 
       {/* Hero */}
       <section
@@ -199,7 +180,7 @@ export default function HomePage() {
 
       {/* About */}
       <section id="about" className="relative border-t border-[var(--border)] px-6 py-28">
-        <div className="mx-auto max-w-5xl">
+        <Reveal className="mx-auto max-w-5xl">
           <div className="flex items-baseline gap-4">
             <span className="font-display text-sm italic text-[var(--accent)]">01</span>
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--text-faint)]">
@@ -227,12 +208,12 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Work */}
       <section id="work" className="relative border-t border-[var(--border)] px-6 py-28">
-        <div className="mx-auto max-w-5xl">
+        <Reveal className="mx-auto max-w-5xl">
           <div className="flex items-baseline gap-4">
             <span className="font-display text-sm italic text-[var(--accent)]">02</span>
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--text-faint)]">
@@ -242,8 +223,9 @@ export default function HomePage() {
 
           <div className="mt-12 border-t border-[var(--border)]">
             {projects.map((project, index) => (
-              <div
+              <Reveal
                 key={project.name}
+                delay={Math.min(index, 5) * 60}
                 className="group/row -mx-4 flex flex-col gap-5 border-b border-[var(--border)] px-4 py-9 transition hover:bg-[var(--bg-row-hover)] sm:flex-row sm:items-start sm:justify-between"
               >
                 <div className="flex items-baseline gap-5">
@@ -285,7 +267,7 @@ export default function HomePage() {
                     <ArrowUpRightIcon className="h-3 w-3" />
                   </a>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -298,14 +280,14 @@ export default function HomePage() {
             See all repositories
             <ArrowUpRightIcon className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-        </div>
+        </Reveal>
       </section>
 
       {/* Contact */}
       <section id="contact" className="relative border-t border-[var(--border)] px-6 py-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--accent-dim),_transparent_60%)]" />
 
-        <div className="relative z-10 mx-auto max-w-3xl text-center">
+        <Reveal className="relative z-10 mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-4">
             <span className="font-display text-sm italic text-[var(--accent)]">03</span>
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--text-faint)]">
@@ -346,7 +328,7 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <footer className="border-t border-[var(--border)] px-6 py-8 text-center text-[11px] uppercase tracking-[0.2em] text-[var(--text-faint)]">
