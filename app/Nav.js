@@ -42,16 +42,16 @@ export default function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-[var(--bg-nav)] backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="#home"
           onClick={() => setOpen(false)}
-          className="font-display text-lg italic text-[var(--text)]"
+          className="text-lg font-bold tracking-tight text-[var(--text)]"
         >
           Nitya
         </a>
 
-        <nav className="hidden items-center gap-10 text-[11px] uppercase tracking-[0.25em] text-[var(--text-muted)] sm:flex">
+        <nav className="hidden items-center gap-8 text-sm font-medium text-[var(--text-muted)] sm:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -69,7 +69,7 @@ export default function Nav() {
           <ThemeToggle />
           <a
             href={`mailto:${EMAIL}`}
-            className="hidden items-center border border-[var(--border)] px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] sm:inline-flex"
+            className="hidden items-center rounded-md bg-[var(--btn-bg)] px-4 py-2 text-sm font-medium text-[var(--btn-text)] transition hover:opacity-90 sm:inline-flex"
           >
             Say hello
           </a>
@@ -78,7 +78,7 @@ export default function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
-            className="flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--border)] text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] sm:hidden"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-[var(--border)] text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] sm:hidden"
           >
             <span className="relative block h-3.5 w-4">
               <span
@@ -106,7 +106,7 @@ export default function Nav() {
           open ? "max-h-72" : "max-h-0 border-t-0"
         }`}
       >
-        <nav className="flex flex-col px-6 py-2 text-sm uppercase tracking-[0.2em] text-[var(--text-muted)]">
+        <nav className="flex flex-col px-6 py-2 text-sm font-medium text-[var(--text-muted)]">
           {links.map((link) => (
             <a
               key={link.href}
@@ -122,7 +122,7 @@ export default function Nav() {
           <a
             href={`mailto:${EMAIL}`}
             onClick={() => setOpen(false)}
-            className="my-4 inline-flex items-center justify-center border border-[var(--border)] px-4 py-3 text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="my-4 inline-flex items-center justify-center rounded-md bg-[var(--btn-bg)] px-4 py-3 text-[var(--btn-text)] transition hover:opacity-90"
           >
             Say hello
           </a>

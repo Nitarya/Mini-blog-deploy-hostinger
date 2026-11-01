@@ -83,12 +83,23 @@ function ArrowUpRightIcon(props) {
   );
 }
 
+function SectionLabel({ index, children }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent-dim)] text-xs font-semibold text-[var(--accent)]">
+        {index}
+      </span>
+      <span className="text-sm font-semibold text-[var(--text)]">{children}</span>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
-    <main className="bg-grain min-h-screen bg-[var(--bg)] font-sans text-[var(--text)] selection:bg-[var(--accent)] selection:text-[var(--bg)]">
+    <main className="min-h-screen bg-[var(--bg)] font-sans text-[var(--text)] selection:bg-[var(--accent)] selection:text-white">
       <a
         href="#home"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-[var(--btn-bg)] focus:px-4 focus:py-2 focus:text-xs focus:uppercase focus:tracking-[0.2em] focus:text-[var(--btn-text)]"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-[var(--btn-bg)] focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-[var(--btn-text)]"
       >
         Skip to content
       </a>
@@ -102,66 +113,54 @@ export default function HomePage() {
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-dim),_transparent_60%)]" />
 
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-6 top-16 hidden select-none whitespace-nowrap font-display text-[11rem] font-medium uppercase leading-none text-[var(--watermark)] lg:block xl:text-[13rem]"
-        >
-          Develop
-        </span>
-
         <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-16 md:grid-cols-[1.3fr_0.7fr]">
           <div className="animate-fade-up">
-            <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)]">
+            <span className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--accent-dim)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
               Full-Stack Developer
-            </p>
-            <h1 className="mt-6 font-display text-6xl leading-[0.95] text-[var(--text)] sm:text-7xl lg:text-8xl">
-              Hi, I&apos;m
-              <br />
-              <em className="italic text-[var(--accent)]">Nitya.</em>
+            </span>
+            <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-[var(--text)] sm:text-6xl lg:text-7xl">
+              Hi, I&apos;m <span className="text-[var(--accent)]">Nitya</span>.
             </h1>
-            <p className="text-balance mt-8 max-w-md text-base leading-relaxed text-[var(--text-muted)]">
+            <p className="text-balance mt-6 max-w-md text-base leading-relaxed text-[var(--text-muted)]">
               I build and ship small, focused web products end to end —
               React &amp; Next.js on the front, Node and FastAPI on the
               back, and a deployment pipeline that actually works.
             </p>
 
-            <div className="mt-11 flex flex-wrap items-center gap-8">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${EMAIL}`}
-                className="group inline-flex items-center gap-2 bg-[var(--btn-bg)] px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] text-[var(--btn-text)] transition hover:bg-[var(--accent)]"
+                className="group inline-flex items-center gap-2 rounded-md bg-[var(--btn-bg)] px-5 py-3 text-sm font-semibold text-[var(--btn-text)] transition hover:opacity-90"
               >
                 Get in touch
-                <ArrowUpRightIcon className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRightIcon className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a
                 href={GITHUB_PROFILE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--text-muted)] transition hover:text-[var(--text)]"
+                className="inline-flex items-center gap-2 rounded-md border border-[var(--border)] px-5 py-3 text-sm font-semibold text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 View GitHub
-                <span className="h-px w-5 bg-[var(--text-faint)] transition group-hover:w-8 group-hover:bg-[var(--accent)]" />
               </a>
               <a
                 href={LINKEDIN_PROFILE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--text-muted)] transition hover:text-[var(--text)]"
+                className="inline-flex items-center gap-2 rounded-md border border-[var(--border)] px-5 py-3 text-sm font-semibold text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 LinkedIn
-                <span className="h-px w-5 bg-[var(--text-faint)] transition group-hover:w-8 group-hover:bg-[var(--accent)]" />
               </a>
             </div>
           </div>
 
           <div className="relative mx-auto w-full max-w-[260px] md:max-w-none">
-            <div className="absolute inset-0 translate-x-3 translate-y-3 border border-[var(--accent-dim-strong)]" />
-            <div className="relative aspect-[4/5] overflow-hidden bg-[var(--bg-elevated)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] shadow-xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/avatar.jpg"
                 alt="Nitya"
-                className="h-full w-full object-cover grayscale-[15%] contrast-[1.05]"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
@@ -169,7 +168,7 @@ export default function HomePage() {
 
         <div className="absolute bottom-10 right-6 hidden flex-col items-center gap-4 sm:flex">
           <span
-            className="text-[10px] uppercase tracking-[0.3em] text-[var(--text-faint)]"
+            className="text-[10px] font-medium uppercase tracking-[0.3em] text-[var(--text-faint)]"
             style={{ writingMode: "vertical-rl" }}
           >
             Scroll
@@ -181,30 +180,30 @@ export default function HomePage() {
       {/* About */}
       <section id="about" className="relative border-t border-[var(--border)] px-6 py-28">
         <Reveal className="mx-auto max-w-5xl">
-          <div className="flex items-baseline gap-4">
-            <span className="font-display text-sm italic text-[var(--accent)]">01</span>
-            <span className="text-xs uppercase tracking-[0.3em] text-[var(--text-faint)]">
-              About
-            </span>
-          </div>
+          <SectionLabel index="01">About</SectionLabel>
 
-          <p className="text-balance mt-10 max-w-3xl font-display text-2xl italic leading-snug text-[var(--text)] sm:text-3xl">
-            &ldquo;I like building small projects well rather than big
-            projects halfway — clean structure, a pipeline that actually
-            deploys, and no more moving parts than the project needs.&rdquo;
+          <p className="text-balance mt-10 max-w-3xl text-2xl font-semibold leading-snug text-[var(--text)] sm:text-3xl">
+            I like building small projects well rather than big projects
+            halfway — clean structure, a pipeline that actually deploys, and
+            no more moving parts than the project needs.
           </p>
 
-          <div className="mt-20 grid gap-10 border-t border-[var(--border)] pt-10 sm:grid-cols-4">
+          <div className="mt-16 grid gap-8 border-t border-[var(--border)] pt-10 sm:grid-cols-4">
             {skillGroups.map((group) => (
               <div key={group.label}>
-                <h3 className="text-xs uppercase tracking-[0.25em] text-[var(--accent)]">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-[var(--text-faint)]">
                   {group.label}
                 </h3>
-                <ul className="mt-4 space-y-2 text-sm text-[var(--text-muted)]">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
-                    <li key={skill}>{skill}</li>
+                    <span
+                      key={skill}
+                      className="rounded-full border border-[var(--border)] bg-[var(--bg-elevated)] px-3 py-1 text-xs font-medium text-[var(--text-muted)]"
+                    >
+                      {skill}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -214,58 +213,62 @@ export default function HomePage() {
       {/* Work */}
       <section id="work" className="relative border-t border-[var(--border)] px-6 py-28">
         <Reveal className="mx-auto max-w-5xl">
-          <div className="flex items-baseline gap-4">
-            <span className="font-display text-sm italic text-[var(--accent)]">02</span>
-            <span className="text-xs uppercase tracking-[0.3em] text-[var(--text-faint)]">
-              Selected Work
-            </span>
-          </div>
+          <SectionLabel index="02">Selected Work</SectionLabel>
 
-          <div className="mt-12 border-t border-[var(--border)]">
+          <div className="mt-10 grid gap-5">
             {projects.map((project, index) => (
               <Reveal
                 key={project.name}
                 delay={Math.min(index, 5) * 60}
-                className="group/row -mx-4 flex flex-col gap-5 border-b border-[var(--border)] px-4 py-9 transition hover:bg-[var(--bg-row-hover)] sm:flex-row sm:items-start sm:justify-between"
+                className="group/row rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 transition hover:border-[var(--accent)] hover:shadow-lg"
               >
-                <div className="flex items-baseline gap-5">
-                  <span className="shrink-0 font-display text-sm italic text-[var(--text-faint)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl text-[var(--text)] transition group-hover/row:text-[var(--accent)] sm:text-2xl">
-                      {project.name}
-                    </h3>
-                    <p className="mt-2 max-w-lg text-sm leading-relaxed text-[var(--text-muted)]">
-                      {project.description}
-                    </p>
-                    <p className="mt-3 text-[11px] uppercase tracking-[0.15em] text-[var(--text-faint)]">
-                      {project.stack.join(" · ")}
-                    </p>
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex items-start gap-4">
+                    <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent-dim)] text-[11px] font-semibold text-[var(--accent)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-[var(--text)] transition group-hover/row:text-[var(--accent)]">
+                        {project.name}
+                      </h3>
+                      <p className="mt-2 max-w-lg text-sm leading-relaxed text-[var(--text-muted)]">
+                        {project.description}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {project.stack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded-full border border-[var(--border)] px-2.5 py-1 text-[11px] font-medium text-[var(--text-muted)]"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex shrink-0 items-center gap-5 pl-10 sm:pl-6">
-                  {project.live && (
+                  <div className="flex shrink-0 items-center gap-4 pl-10 sm:pl-0">
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-[var(--text-muted)] transition hover:text-[var(--accent)]"
+                      >
+                        Live
+                        <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                      </a>
+                    )}
                     <a
-                      href={project.live}
+                      href={project.code}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] transition hover:text-[var(--accent)]"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-[var(--text-muted)] transition hover:text-[var(--accent)]"
                     >
-                      Live
-                      <ArrowUpRightIcon className="h-3 w-3" />
+                      Code
+                      <ArrowUpRightIcon className="h-3.5 w-3.5" />
                     </a>
-                  )}
-                  <a
-                    href={project.code}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em] text-[var(--text-muted)] transition hover:text-[var(--accent)]"
-                  >
-                    Code
-                    <ArrowUpRightIcon className="h-3 w-3" />
-                  </a>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -275,10 +278,10 @@ export default function HomePage() {
             href={GITHUB_PROFILE}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-10 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--text-faint)] transition hover:text-[var(--text)]"
+            className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-muted)] transition hover:text-[var(--text)]"
           >
             See all repositories
-            <ArrowUpRightIcon className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRightIcon className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </Reveal>
       </section>
@@ -288,14 +291,11 @@ export default function HomePage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--accent-dim),_transparent_60%)]" />
 
         <Reveal className="relative z-10 mx-auto max-w-3xl text-center">
-          <div className="flex items-center justify-center gap-4">
-            <span className="font-display text-sm italic text-[var(--accent)]">03</span>
-            <span className="text-xs uppercase tracking-[0.3em] text-[var(--text-faint)]">
-              Contact
-            </span>
+          <div className="flex justify-center">
+            <SectionLabel index="03">Contact</SectionLabel>
           </div>
 
-          <h2 className="mt-8 font-display text-4xl italic leading-tight text-[var(--text)] sm:text-5xl">
+          <h2 className="mt-8 text-4xl font-extrabold leading-tight tracking-tight text-[var(--text)] sm:text-5xl">
             Let&apos;s build
             <br className="hidden sm:block" /> something good.
           </h2>
@@ -303,35 +303,34 @@ export default function HomePage() {
           <div className="mt-12 flex flex-col items-center gap-7">
             <a
               href={`mailto:${EMAIL}`}
-              className="group inline-flex items-center gap-2 border-b border-[var(--text-faint)] pb-1 text-lg text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              className="group inline-flex items-center gap-2 rounded-md bg-[var(--btn-bg)] px-6 py-3 text-base font-semibold text-[var(--btn-text)] transition hover:opacity-90"
             >
               {EMAIL}
               <ArrowUpRightIcon className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-            <div className="flex items-center gap-5 text-xs uppercase tracking-[0.25em] text-[var(--text-faint)]">
+            <div className="flex items-center gap-3 text-sm font-medium text-[var(--text-muted)]">
               <a
                 href={GITHUB_PROFILE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition hover:text-[var(--text)]"
+                className="rounded-md border border-[var(--border)] px-4 py-2 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
-                GitHub ↗
+                GitHub
               </a>
-              <span className="text-[var(--border)]">·</span>
               <a
                 href={LINKEDIN_PROFILE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition hover:text-[var(--text)]"
+                className="rounded-md border border-[var(--border)] px-4 py-2 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
-                LinkedIn ↗
+                LinkedIn
               </a>
             </div>
           </div>
         </Reveal>
       </section>
 
-      <footer className="border-t border-[var(--border)] px-6 py-8 text-center text-[11px] uppercase tracking-[0.2em] text-[var(--text-faint)]">
+      <footer className="border-t border-[var(--border)] px-6 py-8 text-center text-sm text-[var(--text-faint)]">
         © {new Date().getFullYear()} Nitya — Built with Next.js &amp; Tailwind CSS
       </footer>
     </main>
